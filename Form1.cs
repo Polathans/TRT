@@ -26,12 +26,12 @@ namespace veri
 
         private void InitializeDatabaseConnection()
         {
-            string server = "server_adresi";
-            string database = "veritabani_adi";
-            string uid = "kullanici_adı";
-            string password = "sifre";
+            string server = "localhost";
+            string database = "TRT";
+            string uid = "root";
+            string password = "polathan123";
 
-            string connectionString = $"SERVER={localhost};DATABASE={TRT};UID={root};PASSWORD={polathan123};";
+            string connectionString = $"SERVER={server};DATABASE={database};UID={uid};PASSWORD={password};";
             connection = new MySqlConnection(connectionString);
         }
 
@@ -134,7 +134,7 @@ namespace veri
                 if (OpenConnection())
                 {
                     string kanalAdi = textBox1.Text;
-                    string programAdi = KanalAdı.Text; // KanalAdı -> textBox2 olarak değiştirildi
+                    string programAdi = KanalAdı.Text; 
                     string yayinSaati = textBox3.Text;
                     string yonetmenAdi = textBox4.Text;
                     string oyuncuAdi = textBox5.Text;
