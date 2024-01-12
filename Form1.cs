@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,7 +16,7 @@ namespace veri
     public partial class Form1 : Form
     {
         private SqlConnection connection;
-        private string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TVDatabase;Integrated Security=True";
+        private string connectionString = "Data Source=(localdb)\\MYSQLLocalDB;Initial Catalog=TRT;Integrated Security=True";
 
         public Form1()
         {
@@ -31,7 +31,7 @@ namespace veri
             string uid = "kullanici_adı";
             string password = "sifre";
 
-            string connectionString = $"SERVER={server};DATABASE={database};UID={uid};PASSWORD={password};";
+            string connectionString = $"SERVER={localhost};DATABASE={TRT};UID={root};PASSWORD={polathan123};";
             connection = new MySqlConnection(connectionString);
         }
 
@@ -114,14 +114,27 @@ namespace veri
 
         }
 
-        private void button1_Click1(object sender, EventArgs e)
+        private void Button1_Click1(object sender, EventArgs e)
+        {
+            try
+            {
+                connection.Close();
+                MessageBox.Show("Bağlantı başarıyla kapatıldı.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hata: {ex.Message}");
+            }
+        }
+
+        private void Button1_Click1(object sender, EventArgs e)
         {
             try
             {
                 if (OpenConnection())
                 {
                     string kanalAdi = textBox1.Text;
-                    string programAdi = KanalAdı.Text;
+                    string programAdi = KanalAdı.Text; // KanalAdı -> textBox2 olarak değiştirildi
                     string yayinSaati = textBox3.Text;
                     string yonetmenAdi = textBox4.Text;
                     string oyuncuAdi = textBox5.Text;
