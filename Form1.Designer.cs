@@ -1,4 +1,4 @@
-﻿namespace veri
+namespace veri
 {
     partial class Form1
     {
